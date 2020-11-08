@@ -1,0 +1,11 @@
+#Install JAVA on Linux
+
+
+yum install java-1.8*
+java -version
+find /usr/lib/jvm/java-1.8* | head -n 3
+export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk
+export PATH=$PATH:$JAVA_HOME
+echo $JAVA_HOME
+#to update Alternatives in Java
+update-alternatives --config java
