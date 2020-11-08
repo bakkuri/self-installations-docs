@@ -1,0 +1,27 @@
+##Install Tomcat on Linux
+
+cd /opt/	
+wget https://mirrors.estointernet.in/apache/tomcat/tomcat-9/v9.0.39/bin/apache-tomcat-9.0.39.tar.gz
+tar -xvzf apache-tomcat-9.0.39.tar.gz
+mv apache-tomcat-9.0.39 tomcat9
+chmod +x /opt/tomcat9/bin/shutdown.sh
+chmod +x /opt/tomcat9/bin/startup.sh
+ln -s /opt/tomcat9/bin/shutdown.sh /usr/local/bin/tomcatdown
+
+#Here we have to modify Valve class in both context.xml files
+find / -name context.xml
+tomcatdown
+tomcatup
+
+vi /opt/tomcat9/conf/tomcat-users.xml
+ <role rolename="manager-gui"/>
+ <role rolename="manager-script"/>
+ <role rolename="manager-jmx"/>
+ <role rolename="manager-status"/>
+ <user username="admin" password="admin" roles="manager-gui, manager-script, manager-jmx, manager-status"/>
+ <user username="deployer" password="deployer" roles="manager-script"/>
+ <user username="tomcat" password="s3cret" roles="manager-gui"/>
+ :wq!
+cd /opt/tomcat9/bin
+./shutdown.sh
+./startup.sh
