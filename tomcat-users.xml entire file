@@ -50,7 +50,7 @@ tomcat-users.xml entire file
  <role rolename="manager-script"/>
  <role rolename="manager-jmx"/>
  <role rolename="manager-status"/>
- <user username="adminpraveen" password="adminpraveen" roles="manager-gui, manager-script, manager-jmx, manager-status"/>
+ <user username="adminpraveen" password="adminpraveen" roles="manager-gui,manager-script,manager-jmx,manager-status"/>
  <user username="deployerswathi" password="deployerswathi" roles="manager-script"/>
  <user username="tomserver" password="tomserver" roles="manager-gui"/>
 
